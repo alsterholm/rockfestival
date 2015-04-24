@@ -2,7 +2,7 @@
 
 	class Database {
 
-		private $pdo, $error, $result, 
+		private $pdo, $error = false, $query, $count, $result, 
 		private static $instance;
 
 		private function __construct() {
@@ -36,7 +36,6 @@
 					$this->_count = $this->_query->rowCount();
 				}else{
 					$this->_error = true;
-
 				}
 			}
 			return $this;
@@ -48,5 +47,13 @@
 
 		public function first() {
 			return $this->result[0];
+		}
+
+		public function error() {
+			return $this->error;
+		}
+
+		public function count() {
+			return $this->count;
 		}
 	}

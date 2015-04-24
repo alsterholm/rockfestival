@@ -12,7 +12,7 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Hem</a></li>
+            <li role="presentation" class="active"><a href="index.php">Hem</a></li>
             <li role="presentation"><a href="#">Login</a></li>
           </ul>
         </nav>
@@ -20,27 +20,7 @@
       </div>
 
       <div class="jumbotron">
-        <h1>Rock äger!</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4><a href="">Bandinformation</a></h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4><a href="">Spelschema</a></h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-        </div>
-
-        <div class="col-lg-6">
-          <h4><a href="">Våra scener</a></h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4><a href="">Vår personal</a></h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-        </div>
+        <h1>Våra Scener</h1>
       </div>
 
       <footer class="footer">

@@ -60,8 +60,8 @@ $anstallda = $db->query("SELECT * FROM anstalld")->result();
 		<br>
 		<div class="row">
 			<div class="col-md-9">
-				<label for="band_land">Kontaktperson:</label>
-				<select id="band_genre" class="form-control">
+				<label for="band_kontaktperson">Kontaktperson:</label>
+				<select id="band_kontaktperson" class="form-control">
 					<?php
 						foreach($anstallda as $anstalld) {
 							echo '<option value="' . $genre->id . '">' . $genre->namn . '</option>';

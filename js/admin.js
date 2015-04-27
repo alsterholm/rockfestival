@@ -18,8 +18,9 @@ $('#band_button').on('click', function() {
 	var namn = $('#band_namn').val();
 	var genre = $('#band_genre option:selected').val();
 	var land = $('#band_land').val();
+	var kontaktperson = $('#band_kontaktperson option:selected').val();
 
-	$.post('admin/add_band.php', { namn: namn, genre: genre, land: land })
+	$.post('admin/add_band.php', { namn: namn, genre: genre, land: land, kontaktperson: kontaktperson })
 		.done(function(data) {
 			if (data == 1) {
 				$('#band_success').slideToggle(500);

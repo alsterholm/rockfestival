@@ -7,8 +7,9 @@
 		$namn = $_POST['namn'];
 		$genre = $_POST['genre'];
 		$land = $_POST['land'];
+		$kontaktperson, $_POST['kontaktperson'];
 
-		$db->query("INSERT INTO band (namn, genre, land) VALUES (?, ?, ?)", array($namn, $genre, $land));
+		$db->query("INSERT INTO band (namn, genre, land, kontaktperson) VALUES (?, ?, ?)", array($namn, $genre, $land, $kontaktperson));
 		if (!$db->error()) {
 			echo 1;
 		} else {

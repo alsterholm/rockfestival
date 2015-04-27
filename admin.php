@@ -114,5 +114,12 @@ $anstallda = $db->query("SELECT * FROM anstalld")->result();
 </div>
 <br><br><br>
 
+<!-- BOKA SPELNING TILL BAND -->
+
+<!-- UTSE ANSVARIG FÖR SCEN -->
+
+
+
+
 <?php include 'includes/footer.php'; ?>
 <script src="js/admin.js"></script>

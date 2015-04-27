@@ -2,7 +2,7 @@
 
 	class Database {
 
-		private $pdo, $error = false, $query, $count, $result,
+		private $pdo, $error = false, $query, $count, $result;
 		private static $instance;
 
 		private function __construct() {
@@ -42,7 +42,7 @@
 		}
 
 		public function result() {
-			return $this->result();
+			return $this->result;
 		}
 
 		public function first() {

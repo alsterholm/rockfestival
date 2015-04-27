@@ -3,3 +3,8 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 }
+
+.center {
+	text-align: center;
+	margin: 0 auto;
+}

@@ -13,7 +13,7 @@
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><a href="index.php">Hem</a></li>
-            <li role="presentation"><a href="#">Admin</a></li>
+            <li role="presentation"><a href="admin.php">Admin</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Blomstermåla Rockfestival</h3>

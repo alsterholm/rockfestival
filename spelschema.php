@@ -5,7 +5,7 @@
 	$db = Database::getInstance();
 
 	$scener = $db->query("SELECT * FROM scen")->result();
-	$spelschema = $db->query("SELECT * FROM spelschema ORDER BY starttid")->result();
+	$spelschema = $db->query("SELECT * FROM spelschema GROUP BY starttid")->result();
 ?>
 
 	<h1>Spelschema</h1>
@@ -25,7 +25,7 @@
 		</thead>
 		<tbody>
 			<?php
-
+				
 			?>
 		</tbody>
 	</table>

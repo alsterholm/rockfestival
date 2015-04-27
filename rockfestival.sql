@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 27, 2015 at 09:57 AM
+-- Generation Time: Apr 27, 2015 at 11:48 AM
 -- Server version: 5.6.19-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.9
 
@@ -44,9 +44,13 @@ CREATE TABLE IF NOT EXISTS `band` (
   `namn` varchar(50) NOT NULL,
   `genre` varchar(50) NOT NULL,
   `land` varchar(50) NOT NULL,
+  `kontaktperson` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `genre` (`genre`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  UNIQUE KEY `namn` (`namn`),
+  KEY `genre` (`genre`),
+  KEY `kontaktperson` (`kontaktperson`),
+  KEY `kontaktperson_2` (`kontaktperson`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -73,6 +77,16 @@ CREATE TABLE IF NOT EXISTS `genre` (
   `namn` varchar(50) NOT NULL,
   PRIMARY KEY (`namn`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `genre`
+--
+
+INSERT INTO `genre` (`namn`) VALUES
+('Blues'),
+('Heavy metal'),
+('Indierock'),
+('Rock');
 
 -- --------------------------------------------------------
 
@@ -102,7 +116,16 @@ CREATE TABLE IF NOT EXISTS `scen` (
   `namn` varchar(50) NOT NULL,
   `kapacitet` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `scen`
+--
+
+INSERT INTO `scen` (`id`, `namn`, `kapacitet`) VALUES
+(1, 'Mallorcascenen', 1200),
+(2, 'Dieseltältet', 150),
+(3, 'Forumscenen', 400);
 
 -- --------------------------------------------------------
 
@@ -129,6 +152,7 @@ CREATE TABLE IF NOT EXISTS `spelschema` (
 -- Constraints for table `band`
 --
 ALTER TABLE `band`
+  ADD CONSTRAINT `band_kontakt` FOREIGN KEY (`kontaktperson`) REFERENCES `anstalld` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `genre` FOREIGN KEY (`genre`) REFERENCES `genre` (`namn`) ON UPDATE CASCADE;
 
 --

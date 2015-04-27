@@ -32,3 +32,21 @@ $('#band_button').on('click', function() {
 			}
 		})
 });
+
+$('#anstalld_button').on('click', function() {
+	var namn = $('#anstalld_namn').val();
+	var personnr = $('#anstalld_personnr').val();
+
+	$.post('admin/add_anstalld.php', {namn: namn, personnr: personnr})
+		.done(function(data) {
+			if (data == 1) {
+				$('#anstalld_success').slideToggle(500);
+				$('#anstalld_success').delay(3000).slideToggle(500);
+				$('#anstalld_name').val('');
+				$('#anstalld_personnr').val('');
+			}	else {
+				$('#anstalld_failure').slideToggle(500);
+				$('#anstalld_failure').delay(3000).slideToggle(500);
+			}
+		})
+});

@@ -46,7 +46,7 @@ $anstallda = $db->query("SELECT * FROM anstalld")->result();
 						foreach($genres as $genre) {
 							echo '<option value="' . $genre->namn . '">' . $genre->namn . '</option>';
 						}
-					?>	
+					?>
 				</select>
 			</div>
 		</div>
@@ -66,7 +66,7 @@ $anstallda = $db->query("SELECT * FROM anstalld")->result();
 						foreach($anstallda as $anstalld) {
 							echo '<option value="' . $genre->id . '">' . $genre->namn . '</option>';
 						}
-					?>	
+					?>
 				</select>
 			</div>
 		</div>
@@ -109,8 +109,8 @@ $anstallda = $db->query("SELECT * FROM anstalld")->result();
 </div>
 <br>
 <div class="row">
-	<div class="col-md-12 alert alert-success admin-notice" id="genre_success">Genre tillagd</div>
-	<div class="col-md-12 alert alert-danger admin-notice" id="genre_failure">Genre finns redan</div>
+	<div class="col-md-12 alert alert-success admin-notice" id="anstalld_success">Person tillagd</div>
+	<div class="col-md-12 alert alert-danger admin-notice" id="anstalld_failure">Person finns redan</div>
 </div>
 <br><br><br>
 

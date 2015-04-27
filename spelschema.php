@@ -4,7 +4,8 @@
 
 	$db = Database::getInstance();
 
-	$spelschema = $db->query("SELECT * FROM spelschema")->result();
+	$scener = $db->query("SELECT * FROM scen")->result();
+	$spelschema = $db->query("SELECT * FROM spelschema ORDER BY starttid")->result();
 ?>
 
 	<h1>Spelschema</h1>
@@ -15,13 +16,17 @@
 		<thead>
 			<tr>
 				<td>Tid</td>
-				<td>Mallorcascenen</td>
-				<td>Dieseltältet</td>
-				<td>Forumscenen</td>
+				<?php
+					foreach ($scener as $scen) {
+						echo '<td>' . $scen->namn . '</td>';
+					}
+				?>
 			</tr>
 		</thead>
 		<tbody>
-			
+			<?php
+
+			?>
 		</tbody>
 	</table>
 	<br>

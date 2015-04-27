@@ -64,7 +64,7 @@ $anstallda = $db->query("SELECT * FROM anstalld")->result();
 				<select id="band_kontaktperson" class="form-control">
 					<?php
 						foreach($anstallda as $anstalld) {
-							echo '<option value="' . $genre->id . '">' . $genre->namn . '</option>';
+							echo '<option value="' . $anstalld->id . '">' . $anstalld->namn . '</option>';
 						}
 					?>
 				</select>

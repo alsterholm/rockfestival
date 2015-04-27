@@ -25,7 +25,7 @@
 		</thead>
 		<tbody>
 			<?php
-				
+
 			?>
 		</tbody>
 	</table>

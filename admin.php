@@ -81,7 +81,7 @@ $anstallda = $db->query("SELECT * FROM anstalld")->result();
 </div>
 <br><br><br>
 
-<!-- LÄGG TILL PERSON -->
+<!-- LÄGG TILL ANSTÄLLD -->
 <div class="row">
 	<div class="col-md-12">
 	<h3>Lägg till anställd:</h3>

@@ -5,7 +5,10 @@
 	$db = Database::getInstance();
 
 	$scener = $db->query("SELECT * FROM scen")->result();
-	$spelschema = $db->query("SELECT * FROM spelschema GROUP BY starttid")->result();
+	$spelschema = $db->query("SELECT starttid, band.namn FROM spelschema 
+							INNER JOIN band
+							ON band.id = spelschema.band_id 
+							ORDER BY starttid")->result();
 ?>
 
 	<h1>Spelschema</h1>
@@ -25,8 +28,16 @@
 		</thead>
 		<tbody>
 			<?php
+				foreach ($spelschema as $spelning) {
+					echo '
+						<tr>
+							<td>' . $spelning-> . '</td>
+						</tr>
+					';
+				}
 
 			?>
+			
 		</tbody>
 	</table>
 	<br>

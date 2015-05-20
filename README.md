@@ -30,7 +30,7 @@ Om du inte har npm, ladda ner och installera Node.js på http://www.nodejs.org
 	* [bandmedlem](#bandmedlem)
 	* [scen](#scen)
 	* [sakerhetsansvar](#sakerhetsansvar)
-	* [spelschema](#spelschema)
+	* [spelschema](#spelschema-1)
 	* [genre](#genre)
 
 ---

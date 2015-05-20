@@ -58,7 +58,7 @@ Här följer de krav vi satt upp för produkten ordnade efter om kraven gäller 
 
 ## ER-diagram
 
-@bild
+![ER-diagram](http://rocketship.se/11294360_10153891873164097_143664670_o.jpg)
 
 
 ## Tabeller

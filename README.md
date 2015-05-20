@@ -85,7 +85,7 @@ Här följer de krav vi satt upp för produkten ordnade efter om kraven gäller 
 
 ## ER-diagram
 
-![ER-diagram](http://rocketship.se/11294360_10153891873164097_143664670_o.jpg)
+![ER-diagram](https://camo.githubusercontent.com/79645e9aab2468b443efe7b81748b4d7b1b217ba/687474703a2f2f726f636b6574736869702e73652f31313239343336305f31303135333839313837333136343039375f3134333636343637305f6f2e6a7067)
 
 
 

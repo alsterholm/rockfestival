@@ -13,7 +13,27 @@ Om du inte har bower installerat, kör:
 Om du inte har npm, ladda ner och installera Node.js på http://www.nodejs.org
 
 ---
+## Innehåll
 
+* [Projektbeskrivning](#projektbeskrivning)
+* [Problembeskrivning](#problembeskrivning)
+	* [Besökarkrav](#besökarkrav)
+	* [Administratörskrav](#administratörskrav)
+		* [Säkerhet](#säkerhet)
+		* [Kontaktperson](#kontaktperson)
+		* [Spelschema](#spelschema)
+	* [Systemkrav](#systemkrav)
+* [ER-diagram](#er-diagram)
+* [Tabeller](#tabeller)
+	* [anstalld](#anstalld)
+	* [band](#band)
+	* [bandmedlem](#bandmedlem)
+	* [scen](#scen)
+	* [sakerhetsansvar](#sakerhetsansvar)
+	* [spelschema](#spelschema)
+	* [genre](#genre)
+
+---
 
 ## Projektbeskrivning
 
@@ -42,18 +62,18 @@ Här följer de krav vi satt upp för produkten ordnade efter om kraven gäller 
 * **A-B-5:**	Administratörer skall kunna lista information om banden
 
 
-### Säkerhet
+#### Säkerhet
 * **A-S-1:**	Administratörer skall kunna utse säkerhetsansvarig för scen
 * **A-S-2:**	Administratörer skall kunna lista alla säkerhetsansvariga, med info om scen, tid och personnummer på ansvarig 
 
 
-### Kontaktperson
+#### Kontaktperson
 * **A-K-1:**	Administratörer skall kunna lista alla kontaktpersoner för ett specifikt band
 * **A-K-2:**	Administratörer skall kunna lista över alla bands kontaktpersoner
 * **A-K-3:**	Administratörer skall kunna lista alla kontaktpersoner samt hur många bandmedlemmar de har ansvar för.
 
 
-### Spelschema
+#### Spelschema
 * **A-SS-1:**	Administratörer skall kunna lista spelschema för en specifik scen
 * **A-SS-2:**	Administratörer skall kunna lista spelschema för alla scener
 
@@ -71,7 +91,7 @@ Här följer de krav vi satt upp för produkten ordnade efter om kraven gäller 
 
 ## Tabeller
 
-### **anställd**
+### **anstalld**
 _id_, namn, persnr
 
 

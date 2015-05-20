@@ -1,20 +1,8 @@
 # Blomstermåla Rockfestival
 
-För att installera Bootstrap och jQuery, kör:
-
-    bower install
-
-
-Om du inte har bower installerat, kör:
-
-	npm install -g bower
-
-
-Om du inte har npm, ladda ner och installera Node.js på http://www.nodejs.org
-
----
 ## Innehåll
 
+* [Installation](#installation)
 * [Projektbeskrivning](#projektbeskrivning)
 * [Problembeskrivning](#problembeskrivning)
 	* [Besökarkrav](#besökarkrav)
@@ -32,6 +20,22 @@ Om du inte har npm, ladda ner och installera Node.js på http://www.nodejs.org
 	* [sakerhetsansvar](#sakerhetsansvar)
 	* [spelschema](#spelschema-1)
 	* [genre](#genre)
+
+---
+
+## Installation 
+
+För att installera Bootstrap och jQuery, kör:
+
+    bower install
+
+
+Om du inte har bower installerat, kör:
+
+	npm install -g bower
+
+
+Om du inte har npm, ladda ner och installera Node.js på http://www.nodejs.org
 
 ---
 

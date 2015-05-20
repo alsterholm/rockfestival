@@ -26,11 +26,11 @@ $personal 	= $db->query("SELECT anstalld.namn, anstalld.personnummer, count(band
 
 <nav>
 	<ul class="nav nav-pills">
-		<li role="presentation"><a id="show-genre" href="#">Genre</a></li>
 		<li role="presentation"><a id="show-band" href="#">Band</a></li>
 		<li role="presentation"><a id="show-staff" href="#">Personal</a></li>
 		<li role="presentation"><a id="show-security" href="#">Säkerhetsansvar</a></li>
 		<li role="presentation"><a id="show-schedule" href="#">Spelschema</a></li>
+		<li role="presentation"><a id="show-genre" href="#">Genre</a></li>
 	</ul>
 </nav>
 
@@ -41,7 +41,7 @@ $personal 	= $db->query("SELECT anstalld.namn, anstalld.personnummer, count(band
 			<thead>
 				<tr><td>Genre</td></tr>
 			</thead>
-			<tbody>
+			<tbody id="genre-table">
 				<?php
 					foreach ($genres as $genre) {
 						echo '
@@ -78,7 +78,7 @@ $personal 	= $db->query("SELECT anstalld.namn, anstalld.personnummer, count(band
 					<td>Kontaktperson</td>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="band-table">
 				<?php
 					foreach ($bands as $band) {
 						echo '
@@ -273,6 +273,8 @@ $personal 	= $db->query("SELECT anstalld.namn, anstalld.personnummer, count(band
 <!-- SPELSCHEMA -->
 <div class="row admin-panel" id="schedule-panel">
 	<div class="col-md-12">
+		<br><br>
+		<h4 class="center"><a href="spelschema.php">&laquo; Visa spelschemat</a></h4>
 		<h2>Lägg till speltid</h2><br>
 		<label for="schedule-band">Band:</label>
 		<select type="text" id="schedule-band" class="form-control">	

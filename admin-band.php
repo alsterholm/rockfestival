@@ -39,8 +39,11 @@ if (empty($_GET['id'])) {
 						INNER JOIN anstalld ON anstalld.id = band.kontaktperson
 						WHERE band.id = ?", array($id))->first();
 
+
 	$members = $db->query("SELECT namn, fdatum FROM bandmedlem
 							WHERE band_id = ?", array($id))->result();
+
+
 ?>
 <div class="row">
 	<div class="col-md-12">
@@ -59,6 +62,40 @@ if (empty($_GET['id'])) {
 			</tbody>
 		</table>
 		<br>
+		<h3>Speltid</h3>
+		<?php
+			$speltider = $db->query("SELECT scen.namn, spelschema.starttid FROM spelschema
+							INNER JOIN scen ON scen.id = spelschema.scen_id
+							WHERE spelschema.band_id = ?", array($id))->result();
+
+			if (!$db->count()) {
+				echo '<em>Bandet har inte fått någon speltid än</em><br><br>';
+			} else {
+		?>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>Scen</td>
+						<td>Tid</td>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						foreach($speltider as $speltid) {
+							echo '
+								<tr>
+									<td>' . $speltid->namn . '</td>
+									<td>' . $speltid->starttid . '</td>
+								</tr>
+							';
+						}
+					?>
+				</tbody>
+			</table>
+		<?php
+			}
+		?>
+		<br>
 		<h3>Bandmedlemmar</h3>
 		<table class="table table-striped">
 			<thead>
@@ -67,7 +104,7 @@ if (empty($_GET['id'])) {
 					<td>Födelsedag</td>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="bandmember-table">
 				<?php
 					foreach($members as $member) {
 						echo '
@@ -82,11 +119,29 @@ if (empty($_GET['id'])) {
 		</table>
 		<br>
 		<h3>Lägg till medlem</h3>
+		<br>
+		<input type="hidden" id="member_band" value="<?php echo $id; ?>">
+		<div class="col-md-12">
+			<label for="member_namn">Namn:</label>
+			<input type="text" id="member_namn" class="form-control">
+			<br>
+		</div>
+		<div class="col-md-12">
+			<label for="member_fdatum">Födelsedatum:</label>
+			<input type="text" id="member_fdatum" class="form-control" placeholder="YYYY-MM-DD">
+			<br>
+		</div>
+		<div class="col-md-12">
+			<button type="button" id="member_button" class="btn btn-primary">Lägg till</button>
+		</div>
+		<br>
+		<div class="col-md-12 alert alert-success admin-notice" id="member_success">Bandmedlem tillagd</div>
+		<div class="col-md-12 alert alert-danger admin-notice" id="member_failure">Det gick inte att lägga till bandmedlemmen</div>
 	</div>
 </div>
+<br><br>
 <?php
 }
-
-echo '</pre>';
-
 include 'includes/footer.php';
+?>
+<script src="js/admin.js"></script>

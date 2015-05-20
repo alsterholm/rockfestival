@@ -1,8 +1,14 @@
+$(document).ready(function() {
+	$('#nav-admin').addClass('active');
+	$('#nav-hem').removeClass('active');
+});
+
 $('#genre_button').on('click', function() {
 	if ($('#genre_name').val().length > 0) {
 		$.post('admin/add_genre.php', {name: $('#genre_name').val()})
 			.done(function(data) {
 				if (data == 1) {
+					$('#genre-table').append('<tr><td>' + $('#genre_name').val() + '</td></tr>')
 					$('#genre_success').slideToggle(500);
 					$('#genre_success').delay(3000).slideToggle(500);
 					$('#genre_name').val('');
@@ -85,6 +91,24 @@ $('#schedule_button').on('click', function() {
 			} else {
 				$('#schedule_failure').slideToggle(500);
 				$('#schedule_failure').delay(3000).slideToggle(500);
+			}
+		});
+});
+
+$('#member_button').on('click', function() {
+	var namn 	= $('#member_namn').val();
+	var band 	= $('#member_band').val();
+	var fdatum 	= $('#member_fdatum').val();
+
+	$.post('admin/add_bandmember.php', {namn: namn, fdatum: fdatum, band: band})
+		.done(function(data) {
+			if (data == 1) {
+				$('#bandmember-table').append('<tr><td>' + namn + '</td><td>' + fdatum + '</td></tr>')
+				$('#member_success').slideToggle(500);
+				$('#member_success').delay(3000).slideToggle(500);
+			} else {
+				$('#member_failure').slideToggle(500);
+				$('#member_failure').delay(3000).slideToggle(500);
 			}
 		});
 });

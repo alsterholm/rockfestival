@@ -10,17 +10,11 @@
         <div class="col-lg-6">
           <h4><a href="band-information.php">Bandinformation</a></h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4><a href="spelschema.php">Spelschema</a></h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
         </div>
 
         <div class="col-lg-6">
-          <h4><a href="vara-scener.php">Våra scener</a></h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4><a href="var-personal.php">Vår personal</a></h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+          <h4><a href="spelschema.php">Spelschema</a></h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis.</p>
         </div>
       </div>
 

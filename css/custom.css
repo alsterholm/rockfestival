@@ -20,3 +20,11 @@ body {
 .table-striped thead td {
 	font-weight: bold;
 }
+
+.table-striped tbody td {
+	border-top: none !important;
+}
+
+.table-striped tbody tr:hover {
+	background-color: #EEEEEE;
+}

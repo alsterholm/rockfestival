@@ -71,28 +71,46 @@ $('#anstalld_button').on('click', function() {
 		})
 });
 
+$('#schedule_button').on('click', function() {
+	var band 	= $('#schedule-band option:selected').val();
+	var scen 	= $('#schedule-scen option:selected').val();
+	var date 	= $('#schedule-date').val();
+	var time 	= $('#schedule-time').val();
+
+	$.post('admin/add_speltid.php', {band: band, scen: scen, date: date, time: time})
+		.done(function(data) {
+			if (data == 1) {
+				$('#schedule_success').slideToggle(500);
+				$('#schedule_success').delay(3000).slideToggle(500);
+			} else {
+				$('#schedule_failure').slideToggle(500);
+				$('#schedule_failure').delay(3000).slideToggle(500);
+			}
+		});
+});
+
 
 $('#show-genre').on('click', function() {
 	$('.admin-panel').slideUp(500);
-	$('#genre-panel').delay(500).slideDown(500);
+	$('#genre-panel').slideDown(500);
 });
 
 $('#show-band').on('click', function() {
 	$('.admin-panel').slideUp(500);
-	$('#band-panel').delay(500).slideDown(500);
+	$('#band-panel').slideDown(500);
 });
 
 $('#show-staff').on('click', function() {
 	$('.admin-panel').slideUp(500);
-	$('#staff-panel').delay(500).slideDown(500);
+	$('#staff-panel').slideDown(500);
 });
 
 $('#show-security').on('click', function() {
 	$('.admin-panel').slideUp(500);
-	$('#security-panel').delay(500).slideDown(500);
+	$('#security-panel').slideDown(500);
 });
 
 $('#show-schedule').on('click', function() {
 	$('.admin-panel').slideUp(500);
-	$('#schedlue-panel').delay(500).slideDown(500);
+	$('#schedule-panel').slideDown(500);
 });

@@ -7,14 +7,21 @@ $genres 	= $db->query("SELECT * FROM genre")->result();
 $anstallda 	= $db->query("SELECT * FROM anstalld")->result();
 $scener 	= $db->query("SELECT * FROM scen")->result();
 
-$ansvar 	= $db->query("SELECT anstalld.namn as anstalld, anstalld.personnummer, scen.namn as scen, sakerhetsansvar.starttid, sakerhetsansvar.sluttid FROM sakerhetsansvar
-							INNER JOIN anstalld on anstalld.id=sakerhetsansvar.anstalld_id
-							INNER JOIN scen on scen.id=sakerhetsansvar.scen_id
+$ansvar 	= $db->query("SELECT anstalld.namn AS anstalld, anstalld.personnummer, scen.namn AS scen, sakerhetsansvar.starttid, sakerhetsansvar.sluttid FROM sakerhetsansvar
+							INNER JOIN anstalld ON anstalld.id=sakerhetsansvar.anstalld_id
+							INNER JOIN scen ON scen.id=sakerhetsansvar.scen_id
 							ORDER BY scen.id, sakerhetsansvar.starttid")->result();
 
-$bands 		= $db->query("SELECT band.id, band.namn, band.land, anstalld.namn as kontaktperson FROM band
-							INNER JOIN anstalld on anstalld.id=band.Kontaktperson
+$bands 		= $db->query("SELECT band.id, band.namn, band.land, anstalld.namn AS kontaktperson FROM band
+							INNER JOIN anstalld ON anstalld.id=band.Kontaktperson
 							ORDER BY band.land, band.namn")->result();
+
+$personal 	= $db->query("SELECT anstalld.namn, anstalld.personnummer, count(bandmedlem.id) AS ansvar FROM anstalld
+							INNER JOIN band ON band.kontaktperson = anstalld.id
+							INNER JOIN bandmedlem ON bandmedlem.band_id = band.id
+							GROUP BY anstalld.namn
+							ORDER BY ansvar DESC
+						")->result();
 ?>
 
 <nav>
@@ -59,6 +66,7 @@ $bands 		= $db->query("SELECT band.id, band.namn, band.land, anstalld.namn as ko
 	<div class="col-md-12 alert alert-success admin-notice" id="genre_success">Genre tillagd</div>
 	<div class="col-md-12 alert alert-danger admin-notice" id="genre_failure">Genre finns redan</div>
 </div>
+
 <!-- LÄGG TILL BAND -->
 <div class="row admin-panel" id="band-panel">
 	<div class="col-md-12">
@@ -133,8 +141,34 @@ $bands 		= $db->query("SELECT band.id, band.namn, band.land, anstalld.namn as ko
 	<div class="col-md-12 alert alert-success admin-notice" id="band_success">Band tillagt</div>
 	<div class="col-md-12 alert alert-danger admin-notice" id="band_failure">Band finns redan</div>
 </div>
+
 <!-- LÄGG TILL ANSTÄLLD -->
 <div class="row admin-panel" id="staff-panel">
+	<div class="col-md-12">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td>Namn</td>
+					<td>Personnummer</td>
+					<td class="pull-right">Antal bandmedlemmar</td>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					foreach ($personal as $person) {
+						echo '
+							<tr>
+								<td>' . $person->namn . '</td>
+								<td>' . $person->personnummer . '</td>
+								<td class="pull-right">' . $person->ansvar . '</td>
+							</tr>
+						';
+					}
+				?>
+			</tbody>
+		</table>
+	</div>
+	<br><br>
 	<div class="col-md-12">
 		<h3>Lägg till anställd:</h3>
 		<br><br>
@@ -156,7 +190,6 @@ $bands 		= $db->query("SELECT band.id, band.namn, band.land, anstalld.namn as ko
 	<div class="col-md-12 alert alert-success admin-notice" id="anstalld_success">Person tillagd</div>
 	<div class="col-md-12 alert alert-danger admin-notice" id="anstalld_failure">Person finns redan</div>
 </div>
-<br>
 
 <!-- SÄKERHETSANSVAR -->
 <div class="row admin-panel" id="security-panel">
@@ -236,15 +269,53 @@ $bands 		= $db->query("SELECT band.id, band.namn, band.land, anstalld.namn as ko
 	<div class="col-md-12 alert alert-success admin-notice" id="sec_success">Säkerhetsansvar tillagt</div>
 	<div class="col-md-12 alert alert-danger admin-notice" id="sec_failure">Det gick inte att lägga till säkerhetsansvaret</div>
 </div>
-<br>
-<div class="row">
-	<div class="col-md-12 alert alert-success admin-notice" id="anstalld_success">Person tillagd</div>
-	<div class="col-md-12 alert alert-danger admin-notice" id="anstalld_failure">Person finns redan</div>
+
+<!-- SPELSCHEMA -->
+<div class="row admin-panel" id="schedule-panel">
+	<div class="col-md-12">
+		<h2>Lägg till speltid</h2><br>
+		<label for="schedule-band">Band:</label>
+		<select type="text" id="schedule-band" class="form-control">	
+			<?php
+				foreach($bands as $band) {
+					echo '<option value="' . $band->id . '">' . $band->namn . '</option>';
+				}
+			?>
+		</select>
+		<br>
+	</div>
+	<div class="col-md-12">
+		<label for="schedule-scen">Scen:</label>
+		<select type="text" id="schedule-scen" class="form-control">
+			<?php
+				foreach($scener as $scen) {
+					echo '<option value="' . $scen->id . '">' . $scen->namn . '</option>';
+				}
+			?>
+		</select>
+		<br>
+	</div>
+	<div class="col-md-6">
+		<label for="schedule-date">Dag:</label>
+		<input type="date" class="form-control" value="2015-06-18" min="2015-06-18" max="2015-06-20" id="schedule-date">
+	</div>
+	<div class="col-md-6">
+		<label for="schedule-time">Starttid:</label>
+		<input type="time" class="form-control" value="12:00:00" step="10800" id="schedule-time">
+	</div>
+	<div class="col-md-12">
+		<br>
+		<em>Speltiden varar i tre timmar</em>
+		<br><br>
+	</div>
+	<div class="col-md-12">
+		<button type="button" id="schedule_button" class="btn btn-primary">Lägg till</button>
+		<br><br>
+	</div>
+	<br><br>
+	<div class="col-md-12 alert alert-success admin-notice" id="schedule_success">Speltid tillagd</div>
+	<div class="col-md-12 alert alert-danger admin-notice" id="schedule_failure">Speltiden är upptagen</div>
 </div>
-<!-- UTSE ANSVARIG FÖR SCEN -->
-
-
-
-
+<br><br>
 <?php include 'includes/footer.php'; ?>
 <script src="js/admin.js"></script>

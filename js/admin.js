@@ -28,10 +28,29 @@ $('#band_button').on('click', function() {
 				$('#band_name').val('');
 				$('#band_land').val('');
 			} else {
+				alert(data);
 				$('#band_failure').slideToggle(500);
 				$('#band_failure').delay(3000).slideToggle(500);
 			}
 		})
+});
+
+$('#security_button').on('click', function() {
+	var anstalld 	= $('#sec-anstalld option:selected').val();
+	var scen 		= $('#sec-scen option:selected').val();
+	var date 		= $('#sec-date').val();
+	var time 		= $('#sec-time').val();
+
+	$.post('admin/add_security.php', {anstalld: anstalld, scen: scen, date: date, time: time})
+		.done(function(data) {
+			if (data == 1) {
+				$('#sec_success').slideToggle(500);
+				$('#sec_success').delay(3000).slideToggle(500);
+			} else {
+				$('#sec_failure').slideToggle(500);
+				$('#sec_failure').delay(3000).slideToggle(500);
+			}
+		});
 });
 
 $('#anstalld_button').on('click', function() {
@@ -50,4 +69,30 @@ $('#anstalld_button').on('click', function() {
 				$('#anstalld_failure').delay(3000).slideToggle(500);
 			}
 		})
+});
+
+
+$('#show-genre').on('click', function() {
+	$('.admin-panel').slideUp(500);
+	$('#genre-panel').delay(500).slideDown(500);
+});
+
+$('#show-band').on('click', function() {
+	$('.admin-panel').slideUp(500);
+	$('#band-panel').delay(500).slideDown(500);
+});
+
+$('#show-staff').on('click', function() {
+	$('.admin-panel').slideUp(500);
+	$('#staff-panel').delay(500).slideDown(500);
+});
+
+$('#show-security').on('click', function() {
+	$('.admin-panel').slideUp(500);
+	$('#security-panel').delay(500).slideDown(500);
+});
+
+$('#show-schedule').on('click', function() {
+	$('.admin-panel').slideUp(500);
+	$('#schedlue-panel').delay(500).slideDown(500);
 });

@@ -12,3 +12,11 @@ body {
 .admin-notice {
 	display: none;
 }
+
+.admin-panel {
+	display: none;
+}
+
+.table-striped thead td {
+	font-weight: bold;
+}

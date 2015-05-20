@@ -5,6 +5,12 @@ För att installera Bootstrap och jQuery, kör:
     bower install
 
 
+Om du inte har bower installerat, kör:
+
+	npm install -g bower
+
+
+Om du inte har npm, ladda ner och installera Node.js på http://www.nodejs.org
 ---
 
 

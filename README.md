@@ -11,6 +11,7 @@ Om du inte har bower installerat, kör:
 
 
 Om du inte har npm, ladda ner och installera Node.js på http://www.nodejs.org
+
 ---
 
 

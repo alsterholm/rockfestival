@@ -76,6 +76,7 @@ $personal 	= $db->query("SELECT anstalld.namn, anstalld.personnummer, count(band
 					<td>Band</td>
 					<td>Nationalitet</td>
 					<td>Kontaktperson</td>
+					<td>Ta bort</td>
 				</tr>
 			</thead>
 			<tbody id="band-table">
@@ -86,6 +87,7 @@ $personal 	= $db->query("SELECT anstalld.namn, anstalld.personnummer, count(band
 								<td><a href="admin-band.php?id=' . $band->id . '">' . $band->namn . '</a></td>
 								<td>' . $band->land . '</td>
 								<td>' . $band->kontaktperson . '</td>
+								<td><a href="admin/delete_band.php?id=' . $band->id . '" class="btn btn-danger btn-xs">Ta bort</a></td>
 							</tr>
 						';
 					}

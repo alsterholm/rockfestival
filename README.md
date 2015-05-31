@@ -103,14 +103,15 @@ _id_, namn, persnr
 
 _id_, namn, land, genre, kontaktperson
 
-FK genre(namn), FK anstalld(id)
+FK genre -> genre(namn)
+FK kontaktperson -> anstalld(id)
 
 
 ### **bandmedlem**
 
 _id_, namn, fdatum, band_id
 
-FK band(id)
+FK band_id -> band(id)
 
 
 ### **scen**
@@ -122,14 +123,16 @@ _id_, namn, kapacitet
 
 _id_, anstalld\_id, scen_id, startid, sluttid
 
-FK anställd(id), FK scen(id)
+FK anstalld\_id -> anstalld(id)
+FK scen_id -> scen(id)
 
 
 ### **spelschema**
 
 _id_, band\_id, scen_id, startid, sluttid
 
-FK band(id), FK scen(id)
+FK band\_id -> band(id)
+FK scen\_id -> scen(id)
 
 
 ### **genre**
